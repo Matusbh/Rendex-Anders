@@ -1,0 +1,90 @@
+---
+// Footer — mínimo: logo · links legales + Instagram · copyright.
+// TODO: Reemplaza el texto RENDEX + dot por el logo real cuando esté disponible.
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-brand">
+    <div class="footer-brand-dot" aria-hidden="true"></div>
+    <!-- TODO: <img src="/logo.png" alt="Rendex" height="28"> -->
+    RENDEX
+  </div>
+
+  <nav class="footer-nav" aria-label="Links del footer">
+    <a href="/politica-de-privacidad">Política de privacidad</a>
+    <a
+      href="https://www.instagram.com/rendex.3d.render"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Instagram</a>
+    <a href="#inicio">Volver arriba ↑</a>
+  </nav>
+
+  <div class="footer-copy">© {year} Rendex · La Orotava, Tenerife</div>
+</footer>
+
+<style>
+  footer {
+    background: var(--dark);
+    padding: 44px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    color: var(--white);
+  }
+
+  .footer-brand-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--blue-mid);
+    flex-shrink: 0;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav a {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.36);
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+
+  .footer-nav a:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.26);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 36px 24px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-nav {
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,0 +1,217 @@
+---
+// Nav — sticky, fondo transparente sobre el hero, glass al hacer scroll.
+// TODO: Reemplaza el bloque .nav-logo con <img src="/logo.png" alt="Rendex" height="36">
+//       cuando tengas el fichero del logo.
+---
+
+<nav id="mainNav">
+  <div class="nav-logo">
+    <div class="nav-logo-dot" aria-hidden="true"></div>
+    RENDEX
+  </div>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#portfolio">Galería</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+  <!-- Botón hamburger para móvil -->
+  <button
+    class="nav-burger"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="nav-mobile"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Menú móvil desplegable -->
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="#portfolio" class="nav-mobile-link">Galería</a>
+  <a href="#servicios" class="nav-mobile-link">Servicios</a>
+  <a href="#contacto" class="nav-mobile-link">Contacto</a>
+</div>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    transition:
+      background 0.4s,
+      backdrop-filter 0.4s,
+      box-shadow 0.4s;
+  }
+
+  nav.scrolled {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+  }
+
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.14em;
+    color: #fff;
+    transition: color 0.4s;
+  }
+
+  .nav-logo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #5b9bd5;
+    flex-shrink: 0;
+  }
+
+  nav.scrolled .nav-logo {
+    color: var(--dark);
+  }
+
+  /* Links */
+  .nav-links {
+    display: flex;
+    gap: 40px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #fff;
+  }
+
+  nav.scrolled .nav-links a {
+    color: var(--gray);
+  }
+
+  nav.scrolled .nav-links a:hover {
+    color: var(--blue);
+  }
+
+  /* Hamburger */
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 2px;
+    transition: background 0.4s;
+  }
+
+  nav.scrolled .nav-burger span {
+    background: var(--dark);
+  }
+
+  /* Menú móvil */
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-mobile.open {
+    display: flex;
+  }
+
+  .nav-mobile-link {
+    padding: 16px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-mobile-link:hover {
+    color: var(--blue);
+    background: var(--gray-lt);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 24px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-burger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById("mainNav") as HTMLElement;
+  const burger = nav.querySelector(".nav-burger") as HTMLButtonElement;
+  const mobileMenu = document.getElementById("nav-mobile") as HTMLElement;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      nav.classList.toggle("scrolled", window.scrollY > 60);
+    },
+    { passive: true },
+  );
+
+  burger.addEventListener("click", () => {
+    const open = mobileMenu.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+    mobileMenu.setAttribute("aria-hidden", String(!open));
+    burger.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      burger.setAttribute("aria-label", "Abrir menú");
+    });
+  });
+</script>

@@ -1,0 +1,320 @@
+---
+// Services — 3 tarjetas de precio. "Pack Profesional" es la featured (fondo oscuro).
+const plans = [
+  {
+    badge: "Esencial",
+    name: "Render Individual",
+    price: "150",
+    priceNote: "por imagen · desde",
+    featured: false,
+    features: [
+      "1 render de alta resolución",
+      "Ambiente diurno",
+      "2 rondas de revisión",
+      "Entrega en 5 días hábiles",
+      "Formato JPG / PNG",
+    ],
+  },
+  {
+    badge: "✦ Más popular",
+    name: "Pack Profesional",
+    price: "390",
+    priceNote: "pack completo · desde",
+    featured: true,
+    features: [
+      "3 renders de alta resolución",
+      "Ambiente día y noche",
+      "5 rondas de revisión",
+      "Entrega en 10 días hábiles",
+      "Formato JPG / PNG / TIFF",
+    ],
+  },
+  {
+    badge: "Premium",
+    name: "Pack Full",
+    price: "750",
+    priceNote: "pack completo · desde",
+    featured: false,
+    features: [
+      "6 renders + animación 3D",
+      "Múltiples ambientes",
+      "Revisiones ilimitadas",
+      "Entrega prioritaria",
+      "Todos los formatos disponibles",
+    ],
+  },
+];
+---
+
+<section id="servicios">
+  <div class="container">
+    <div class="section-header anim-fade" id="serviciosHeader">
+      <span class="section-eyebrow">Tarifas</span>
+      <h2 class="section-title">Servicios y <em>precios</em></h2>
+    </div>
+
+    <div class="services-grid">
+      {
+        plans.map((plan, i) => (
+          <article
+            class={`service-card anim-fade${plan.featured ? " featured" : ""}`}
+            data-delay={i * 120}
+          >
+            <div class="service-accent" aria-hidden="true"></div>
+            <span class="service-badge">{plan.badge}</span>
+            <div class="service-name">{plan.name}</div>
+            <div class="service-price-block">
+              <div class="service-price">
+                <sup>€</sup>{plan.price}
+              </div>
+              <div class="service-price-note">{plan.priceNote}</div>
+            </div>
+            <div class="service-divider" aria-hidden="true"></div>
+            <ul class="service-list">
+              {plan.features.map((f) => (
+                <li>{f}</li>
+              ))}
+            </ul>
+            <a href="#contacto" class="service-btn">Solicitar presupuesto</a>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="services-disclaimer">
+      Precios orientativos. El coste final depende de la
+      <strong>complejidad del proyecto</strong>, número de materiales, plazos y
+      revisiones necesarias. Presupuesto personalizado sin compromiso en menos de 24&nbsp;h.
+    </p>
+  </div>
+</section>
+
+<style>
+  #servicios {
+    padding: var(--section-py) 0;
+    background: var(--white);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* Tarjeta base */
+  .service-card {
+    position: relative;
+    border: 1px solid var(--border);
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition:
+      box-shadow 0.35s,
+      border-color 0.35s;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.07);
+    border-color: transparent;
+  }
+
+  /* Línea de acento superior que se anima al hover */
+  .service-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover .service-accent {
+    transform: scaleX(1);
+  }
+
+  /* Tarjeta destacada */
+  .service-card.featured {
+    background: var(--dark);
+    border-color: var(--dark);
+  }
+
+  .service-card.featured .service-accent {
+    background: #5b9bd5;
+  }
+
+  /* Badge / etiqueta */
+  .service-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 22px;
+  }
+
+  .service-card.featured .service-badge {
+    color: #7ab3e8;
+  }
+
+  /* Nombre del plan */
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  .service-card.featured .service-name {
+    color: var(--white);
+  }
+
+  /* Precio */
+  .service-price-block {
+    margin: 22px 0 0;
+  }
+
+  .service-price {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .service-card.featured .service-price {
+    color: var(--white);
+  }
+
+  .service-price sup {
+    font-size: 18px;
+    font-weight: 500;
+    vertical-align: super;
+  }
+
+  .service-price-note {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 5px;
+  }
+
+  .service-card.featured .service-price-note {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Divisor */
+  .service-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .service-card.featured .service-divider {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Lista de características */
+  .service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 36px;
+    flex: 1;
+  }
+
+  .service-list li {
+    font-size: 14px;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .service-card.featured .service-list li {
+    color: rgba(255, 255, 255, 0.58);
+  }
+
+  /* Checkmark SVG como pseudo-elemento */
+  .service-list li::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    background:
+      var(--blue-pale)
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4 9l3.5 3.5L14 5.5' stroke='%231A3D72' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      no-repeat center/contain;
+  }
+
+  .service-card.featured .service-list li::before {
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4 9l3.5 3.5L14 5.5' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+
+  /* Botón CTA */
+  .service-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1.5px solid var(--dark);
+    color: var(--dark);
+    background: none;
+    transition:
+      background 0.3s,
+      color 0.3s;
+  }
+
+  .service-btn:hover {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  .service-card.featured .service-btn {
+    border-color: rgba(255, 255, 255, 0.48);
+    color: var(--white);
+  }
+
+  .service-card.featured .service-btn:hover {
+    background: var(--white);
+    color: var(--dark);
+  }
+
+  /* Disclaimer */
+  .services-disclaimer {
+    text-align: center;
+    margin-top: 44px;
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-disclaimer strong {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin-inline: auto;
+    }
+  }
+</style>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: actualizar con la URL real del sitemap cuando esté en producción
+# Sitemap: https://rendex.studio/sitemap-index.xml
