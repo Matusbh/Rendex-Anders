@@ -85,7 +85,7 @@ Implementado el tipo **LocalBusiness** con:
   "@type": "LocalBusiness",
   "name": "Rendex",
   "telephone": "+34622345678",
-  "email": "hola@rendex.studio",
+  "email": "info@rendex.es",
   "address": {
     "streetAddress": "La Orotava",
     "postalCode": "38300",
@@ -177,7 +177,7 @@ El proyecto está preparado para desplegar en **Vercel** o **Netlify**. Consulta
 - [ ] Registrarse en [web3forms.com](https://web3forms.com) con el correo del cliente
 - [ ] Crear `.env` en la raíz con `PUBLIC_WEB3FORMS_KEY=tu_clave`
 - [ ] Verificar que los mensajes llegan correctamente al correo del cliente haciendo una prueba de envío en local (`pnpm dev`)
-- [ ] Confirmar datos de contacto con el cliente: email `hola@rendex.studio`, teléfono `+34 622 345 678`, Instagram `@rendex.3d.render` — actualizar en `Contact.astro`, `Footer.astro` y `Layout.astro` si cambian
+- [ ] Confirmar datos de contacto con el cliente: email `info@rendex.es`, teléfono `+34 622 345 678`, Instagram `@rendex.3d.render` — actualizar en `Contact.astro`, `Footer.astro` y `Layout.astro` si cambian
 
 ### Assets
 

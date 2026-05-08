@@ -4,8 +4,6 @@ const plans = [
   {
     badge: "Esencial",
     name: "Render Individual",
-    price: "150",
-    priceNote: "por imagen · desde",
     featured: false,
     features: [
       "1 render de alta resolución",
@@ -18,8 +16,6 @@ const plans = [
   {
     badge: "✦ Más popular",
     name: "Pack Profesional",
-    price: "390",
-    priceNote: "pack completo · desde",
     featured: true,
     features: [
       "3 renders de alta resolución",
@@ -32,8 +28,6 @@ const plans = [
   {
     badge: "Premium",
     name: "Pack Full",
-    price: "750",
-    priceNote: "pack completo · desde",
     featured: false,
     features: [
       "6 renders + animación 3D",
@@ -49,8 +43,8 @@ const plans = [
 <section id="servicios">
   <div class="container">
     <div class="section-header anim-fade" id="serviciosHeader">
-      <span class="section-eyebrow">Tarifas</span>
-      <h2 class="section-title">Servicios y <em>precios</em></h2>
+      <span class="section-eyebrow">Servicios</span>
+      <h2 class="section-title">Nuestros <em>paquetes</em></h2>
     </div>
 
     <div class="services-grid">
@@ -63,12 +57,6 @@ const plans = [
             <div class="service-accent" aria-hidden="true"></div>
             <span class="service-badge">{plan.badge}</span>
             <div class="service-name">{plan.name}</div>
-            <div class="service-price-block">
-              <div class="service-price">
-                <sup>€</sup>{plan.price}
-              </div>
-              <div class="service-price-note">{plan.priceNote}</div>
-            </div>
             <div class="service-divider" aria-hidden="true"></div>
             <ul class="service-list">
               {plan.features.map((f) => (
@@ -81,11 +69,6 @@ const plans = [
       }
     </div>
 
-    <p class="services-disclaimer">
-      Precios orientativos. El coste final depende de la
-      <strong>complejidad del proyecto</strong>, número de materiales, plazos y
-      revisiones necesarias. Presupuesto personalizado sin compromiso en menos de 24&nbsp;h.
-    </p>
   </div>
 </section>
 
@@ -176,38 +159,6 @@ const plans = [
     color: var(--white);
   }
 
-  /* Precio */
-  .service-price-block {
-    margin: 22px 0 0;
-  }
-
-  .service-price {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1;
-  }
-
-  .service-card.featured .service-price {
-    color: var(--white);
-  }
-
-  .service-price sup {
-    font-size: 18px;
-    font-weight: 500;
-    vertical-align: super;
-  }
-
-  .service-price-note {
-    font-size: 13px;
-    color: var(--gray);
-    margin-top: 5px;
-  }
-
-  .service-card.featured .service-price-note {
-    color: rgba(255, 255, 255, 0.4);
-  }
-
   /* Divisor */
   .service-divider {
     height: 1px;
@@ -291,23 +242,6 @@ const plans = [
   .service-card.featured .service-btn:hover {
     background: var(--white);
     color: var(--dark);
-  }
-
-  /* Disclaimer */
-  .services-disclaimer {
-    text-align: center;
-    margin-top: 44px;
-    font-size: 13px;
-    color: var(--gray);
-    line-height: 1.75;
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .services-disclaimer strong {
-    color: var(--dark);
-    font-weight: 500;
   }
 
   @media (max-width: 900px) {

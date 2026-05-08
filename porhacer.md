@@ -76,7 +76,7 @@ Después, descomentar la línea del Sitemap en `Rendex/public/robots.txt`.
 
 ## 6. Datos de contacto — verificar con el cliente
 
-- [ ] Email: `hola@rendex.studio` ← confirmar que es correcto
+- [ ] Email: `info@rendex.es` ← confirmar que es correcto
 - [ ] Teléfono: `+34 622 345 678` ← confirmar con el cliente
 - [ ] Instagram: `@rendex.3d.render` ← confirmar el handle exacto
 
