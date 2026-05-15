@@ -1,13 +1,11 @@
 ---
-// Nav — sticky, fondo transparente sobre el hero, glass al hacer scroll.
-// TODO: Reemplaza el bloque .nav-logo con <img src="/logo.png" alt="Rendex" height="36">
-//       cuando tengas el fichero del logo.
+import { Image } from "astro:assets";
+import imgLogo from "../assets/logo.png";
 ---
 
 <nav id="mainNav">
   <div class="nav-logo">
-    <div class="nav-logo-dot" aria-hidden="true"></div>
-    RENDEX
+    <Image src={imgLogo} alt="Rendex" height="36" />
   </div>
 
   <ul class="nav-links" role="list">
@@ -163,7 +161,9 @@
     text-transform: uppercase;
     color: var(--gray);
     border-bottom: 1px solid var(--border);
-    transition: color 0.2s, background 0.2s;
+    transition:
+      color 0.2s,
+      background 0.2s;
   }
 
   .nav-mobile-link:hover {

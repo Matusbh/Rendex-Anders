@@ -1,4 +1,6 @@
 ---
+import CookieBanner from "../components/CookieBanner.astro";
+
 interface Props {
   title?: string;
   description?: string;
@@ -11,13 +13,14 @@ const {
   ogImage = "/og-image.jpg",
 } = Astro.props;
 
-const siteUrl = "https://rendex.studio"; // TODO: cambiar por la URL real en producción
+const siteUrl = "https://rendex.es";
 
 const schemaOrg = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Rendex",
-  description: "Estudio de visualización 3D especializado en renders arquitectónicos",
+  description:
+    "Estudio de visualización 3D especializado en renders arquitectónicos",
   slogan: "3D Design & More",
   url: siteUrl,
   telephone: "+34622345678",
@@ -69,7 +72,11 @@ const schemaOrg = {
     <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
 
     <!-- Schema.org JSON-LD — tipo LocalBusiness -->
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaOrg)} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(schemaOrg)}
+    />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -86,22 +93,22 @@ const schemaOrg = {
     <style is:global>
       /* ── Variables de diseño ─────────────────────────────────── */
       :root {
-        --blue:      #1a3d72;
-        --blue-mid:  #2454a0;
+        --blue: #1a3d72;
+        --blue-mid: #2454a0;
         --blue-pale: #ebf1fb;
-        --dark:      #0d1520;
-        --gray:      #6b7280;
-        --gray-lt:   #f7f8fa;
-        --white:     #ffffff;
-        --border:    #e5e7eb;
-        --text:      #1a2332;
+        --dark: #0d1520;
+        --gray: #6b7280;
+        --gray-lt: #f7f8fa;
+        --white: #ffffff;
+        --border: #e5e7eb;
+        --text: #1a2332;
 
         --font-display: "Cormorant Garamond", Georgia, serif;
-        --font-body:    "Inter", system-ui, sans-serif;
+        --font-body: "Inter", system-ui, sans-serif;
 
-        --section-py:      120px;
-        --container-max:   1280px;
-        --container-px:    clamp(1.25rem, 4.7vw, 60px);
+        --section-py: 120px;
+        --container-max: 1280px;
+        --container-px: clamp(1.25rem, 4.7vw, 60px);
       }
 
       /* ── Reset base ──────────────────────────────────────────── */
@@ -190,7 +197,9 @@ const schemaOrg = {
       .anim-fade {
         opacity: 0;
         transform: translateY(28px);
-        transition: opacity 0.75s ease, transform 0.75s ease;
+        transition:
+          opacity 0.75s ease,
+          transform 0.75s ease;
       }
 
       .anim-fade.visible {
@@ -218,6 +227,7 @@ const schemaOrg = {
   </head>
   <body>
     <slot />
+    <CookieBanner />
 
     <!-- Intersection Observer global para animaciones .anim-fade -->
     <script>

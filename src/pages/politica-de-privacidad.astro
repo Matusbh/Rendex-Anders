@@ -1,0 +1,191 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Política de Privacidad | Rendex"
+  description="Información sobre el tratamiento de tus datos personales en rendex.es"
+>
+  <Nav />
+  <main class="legal-page">
+    <div class="container">
+      <article class="legal-article">
+        <a href="/" class="back-link">← Volver al inicio</a>
+        <h1>Política de <em>Privacidad</em></h1>
+        <p class="legal-updated">Última actualización: mayo de 2025</p>
+
+        <section>
+          <h2>1. Responsable del tratamiento</h2>
+          <p>
+            <strong>Rendex</strong> · La Orotava, Tenerife, España<br />
+            Correo electrónico: <a href="mailto:info@rendex.es">info@rendex.es</a><br />
+            Sitio web: <a href="https://rendex.es">rendex.es</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Datos que recopilamos</h2>
+          <p>A través del formulario de contacto recogemos los siguientes datos:</p>
+          <ul>
+            <li>Nombre y apellidos</li>
+            <li>Dirección de correo electrónico</li>
+            <li>Nombre de la empresa (opcional)</li>
+            <li>Mensaje o descripción del proyecto</li>
+          </ul>
+          <p>No recopilamos datos de navegación ni utilizamos cookies de seguimiento o publicidad.</p>
+        </section>
+
+        <section>
+          <h2>3. Finalidad del tratamiento</h2>
+          <p>
+            Los datos facilitados se utilizan exclusivamente para atender tu consulta o solicitud de presupuesto y dar respuesta a través de correo electrónico.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Base jurídica</h2>
+          <p>
+            El tratamiento se basa en el <strong>consentimiento explícito</strong> del usuario al cumplimentar y enviar el formulario de contacto, de conformidad con el artículo 6.1.a) del Reglamento General de Protección de Datos (RGPD).
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Destinatarios y encargados del tratamiento</h2>
+          <p>Los datos del formulario son procesados por los siguientes terceros:</p>
+          <ul>
+            <li>
+              <strong>Web3Forms</strong> (web3forms.com) — servicio de envío de formularios que actúa como encargado del tratamiento. Consulta su <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+            </li>
+            <li>
+              <strong>Google LLC</strong> — las tipografías se cargan desde Google Fonts (fonts.googleapis.com), lo que implica la transmisión de la dirección IP del visitante a servidores de Google. Consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidad de Google</a>.
+            </li>
+          </ul>
+          <p>No cedemos ni vendemos tus datos a terceros con fines comerciales.</p>
+        </section>
+
+        <section>
+          <h2>6. Plazo de conservación</h2>
+          <p>
+            Los datos se conservan durante el tiempo necesario para gestionar tu solicitud y, como máximo, durante <strong>12 meses</strong> desde el último contacto, salvo que solicites su supresión antes.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Tus derechos</h2>
+          <p>Puedes ejercer en cualquier momento los siguientes derechos enviando un correo a <a href="mailto:info@rendex.es">info@rendex.es</a>:</p>
+          <ul>
+            <li><strong>Acceso:</strong> conocer qué datos tenemos sobre ti.</li>
+            <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos.</li>
+            <li><strong>Supresión:</strong> solicitar la eliminación de tus datos.</li>
+            <li><strong>Oposición:</strong> oponerte al tratamiento de tus datos.</li>
+            <li><strong>Limitación:</strong> solicitar la restricción del tratamiento.</li>
+            <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado.</li>
+          </ul>
+          <p>
+            También tienes derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">aepd.es</a>) si consideras que el tratamiento no es conforme a la normativa.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Cookies</h2>
+          <p>
+            Consulta nuestra <a href="/politica-de-cookies">Política de Cookies</a> para más información sobre las cookies que utilizamos.
+          </p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 140px 0 100px;
+    background: var(--white);
+  }
+
+  .legal-article {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 40px;
+    transition: opacity 0.2s;
+  }
+
+  .back-link:hover {
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  h1 em {
+    font-style: italic;
+  }
+
+  .legal-updated {
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 56px;
+  }
+
+  section {
+    margin-bottom: 44px;
+  }
+
+  h2 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  ul li {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 4px;
+  }
+
+  a {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    opacity: 0.75;
+  }
+</style>

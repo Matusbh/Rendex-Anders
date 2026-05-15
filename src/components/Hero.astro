@@ -1,30 +1,32 @@
 ---
-// Hero — imagen aérea de fondo con parallax, H1 y CTA.
-// TODO: Sustituye la URL de hero-bg por el asset local optimizado en WebP
-//       cuando muevas las imágenes a src/assets/renders/
+import { Image } from "astro:assets";
+import heroBg from "../assets/Drone-Dia.jpg";
 ---
 
 <section class="hero" id="inicio">
   <!-- Fondo con parallax (JS nativo, sin GSAP) -->
-  <!-- TODO: reemplazar URL por imagen local WebP -->
-  <div
-    class="hero-bg"
-    id="heroBg"
-    style="background-image: url('https://rendex.es/assets/images/drone-niebla-2058x1158.webp')"
-    role="img"
-    aria-label="Imagen aérea de un render arquitectónico en Tenerife"
-  ></div>
+  <div class="hero-bg" id="heroBg" aria-hidden="true">
+    <Image
+      src={heroBg}
+      alt=""
+      class="hero-bg-img"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">Estudio de Visualización 3D · La Orotava, Tenerife</span>
+    <span class="hero-eyebrow"
+      >Estudio de Visualización 3D · La Orotava, Tenerife</span
+    >
 
     <!-- H1 único de la página -->
     <h1 class="hero-title">Renders que <em>venden</em></h1>
 
     <p class="hero-sub">
-      Visualización arquitectónica de precisión para arquitectos,
-      interioristas y promotoras.
+      Visualización arquitectónica de precisión para arquitectos, interioristas
+      y promotoras.
     </p>
 
     <a href="#portfolio" class="hero-cta">Ver portfolio →</a>
@@ -50,11 +52,17 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
     transform: scale(1.08);
     will-change: transform;
+  }
+
+  .hero-bg-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .hero-overlay {
@@ -161,7 +169,11 @@
   .hero-scroll-line {
     width: 1px;
     height: 52px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
     animation: scrollAnim 2.2s ease-in-out infinite;
   }
 

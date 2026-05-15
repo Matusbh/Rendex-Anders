@@ -1,23 +1,23 @@
 ---
-// Footer — mínimo: logo · links legales + Instagram · copyright.
-// TODO: Reemplaza el texto RENDEX + dot por el logo real cuando esté disponible.
+import { Image } from "astro:assets";
+import imgLogo from "../assets/logo.png";
 const year = new Date().getFullYear();
 ---
 
 <footer>
   <div class="footer-brand">
-    <div class="footer-brand-dot" aria-hidden="true"></div>
-    <!-- TODO: <img src="/logo.png" alt="Rendex" height="28"> -->
-    RENDEX
+    <Image src={imgLogo} alt="Rendex" height={36} width={120} />
   </div>
 
   <nav class="footer-nav" aria-label="Links del footer">
-    <a href="/politica-de-privacidad">Política de privacidad</a>
+    <a href="/politica-de-privacidad">Privacidad</a>
+    <a href="/politica-de-cookies">Cookies</a>
+    <a href="/aviso-legal">Aviso legal</a>
     <a
       href="https://www.instagram.com/rendex.3d.render"
       target="_blank"
-      rel="noopener noreferrer"
-    >Instagram</a>
+      rel="noopener noreferrer">Instagram</a
+    >
     <a href="#inicio">Volver arriba ↑</a>
   </nav>
 

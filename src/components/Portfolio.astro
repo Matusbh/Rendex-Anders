@@ -1,47 +1,55 @@
 ---
-// TODO: Descarga los WebP a src/assets/renders/ y actualiza los src.
+import { Image } from "astro:assets";
+import imgCasa from "../assets/casa-2.jpg";
+import imgTerraza from "../assets/terraza.jpg";
+import imgInterior from "../assets/Interior-dia.jpg";
+import imgPool from "../assets/pool-2.jpg";
+import imgSala from "../assets/sala-1.jpg";
+import imgCocina from "../assets/cocina-2.jpg";
+import imgTerraza2 from "../assets/terraza-2.jpg";
+import imgComedor from "../assets/comedor-1.jpg";
 
 const items = [
   {
-    src: "https://rendex.es/assets/images/3d-casa-jens-1692x952.webp",
+    src: imgTerraza,
+    alt: "Render exterior terraza",
+    tag: "Exterior · Terraza",
+  },
+  {
+    src: imgCasa,
     alt: "Render exterior residencial — vivienda unifamiliar en Tenerife",
     tag: "Exterior residencial",
-    hero: true, // span 2 cols × 2 filas
+    hero: true,
   },
   {
-    src: "https://rendex.es/assets/images/spa-atardecer-989x1308.webp",
-    alt: "Render exterior spa al atardecer",
-    tag: "Comercial · Spa",
-  },
-  {
-    src: "https://rendex.es/assets/images/interior-dia-989x1314.webp",
+    src: imgInterior,
     alt: "Render interior de día — salón contemporáneo",
     tag: "Interior",
   },
   {
-    src: "https://rendex.es/assets/images/correa-piscina-2-1649x928.webp",
+    src: imgPool,
     alt: "Render exterior piscina y jardín",
     tag: "Exterior · Piscina",
   },
   {
-    src: "https://rendex.es/assets/images/cuarto-dia-989x1492.webp",
-    alt: "Render interior habitación de día",
-    tag: "Interior · Habitación",
+    src: imgSala,
+    alt: "Render interior sala de estar",
+    tag: "Interior · Salón",
   },
   {
-    src: "https://rendex.es/assets/images/office-dia-2058x1158.webp",
-    alt: "Render interior oficina de día",
-    tag: "Comercial · Oficina",
+    src: imgCocina,
+    alt: "Render interior cocina",
+    tag: "Interior · Cocina",
   },
   {
-    src: "https://rendex.es/assets/images/correa-patio-1649x928.webp",
-    alt: "Render exterior patio privado",
-    tag: "Exterior · Patio",
+    src: imgTerraza2,
+    alt: "Render exterior terraza privada",
+    tag: "Exterior · Terraza",
   },
   {
-    src: "https://rendex.es/assets/images/swimspa-1495x841.webp",
-    alt: "Render exterior swim spa",
-    tag: "Exterior · Swim Spa",
+    src: imgComedor,
+    alt: "Render interior comedor",
+    tag: "Interior · Comedor",
   },
 ];
 ---
@@ -61,7 +69,7 @@ const items = [
           <div
             class={`portfolio-item anim-fade${item.hero ? " portfolio-item--hero" : ""}`}
           >
-            <img
+            <Image
               src={item.src}
               alt={item.alt}
               loading="lazy"
@@ -103,6 +111,11 @@ const items = [
   }
 
   .portfolio-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
@@ -161,6 +174,9 @@ const items = [
   }
   .portfolio-item:nth-child(8) {
     transition-delay: 0.63s;
+  }
+  .portfolio-item:nth-child(9) {
+    transition-delay: 0.72s;
   }
 
   @media (max-width: 900px) {

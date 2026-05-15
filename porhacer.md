@@ -2,12 +2,12 @@
 
 ## 1. Assets (imágenes y logo)
 
-- [ ] **Logo** — cuando tengas el fichero, reemplaza el texto `RENDEX` + dot en `Nav.astro` y `Footer.astro` por:
+- [ x] **Logo** — cuando tengas el fichero, reemplaza el texto `RENDEX` + dot en `Nav.astro` y `Footer.astro` por:
   ```html
-  <img src="/logo.png" alt="Rendex" height="36">
+  <img src="/logo.png" alt="Rendex" height="36" />
   ```
-- [ ] **Imágenes del portfolio** — descarga los WebP de `rendex.es/assets/images/` a `Rendex/src/assets/renders/` y actualiza los `src` en `Portfolio.astro`
-- [ ] **og-image.jpg** — pon un render de alta calidad (1200×630 px mínimo) en `Rendex/public/og-image.jpg` para las previsualizaciones de redes sociales
+- [ x] **Imágenes del portfolio** — descarga los WebP de `rendex.es/assets/images/` a `Rendex/src/assets/renders/` y actualiza los `src` en `Portfolio.astro`
+- [ x] **og-image.jpg** — pon un render de alta calidad (1200×630 px mínimo) en `Rendex/public/og-image.jpg` para las previsualizaciones de redes sociales
 
 ---
 
@@ -24,39 +24,36 @@
 3. Abrir `src/pages/api/contact.ts` y descomentar el bloque de Resend
 4. Añadir el adaptador de tu hosting en `astro.config.mjs` (ver paso 4)
 
----
+## Nohace falta no lo hago con resend
 
 ## 3. URL real del sitio
 
-- [ ] En `Rendex/astro.config.mjs`, cambiar:
+- [x ] En `Rendex/astro.config.mjs`, cambiar:
   ```js
-  site: "https://rendex.studio"  // ← URL real
+  site: "https://rendex.studio"; // ← URL real
   ```
-- [ ] Lo mismo en `Rendex/src/layouts/Layout.astro` (variable `siteUrl`)
+- [ x] Lo mismo en `Rendex/src/layouts/Layout.astro` (variable `siteUrl`)
 
 ---
 
 ## 4. Deploy (Vercel o Netlify)
 
 **Vercel:**
+
 ```bash
 pnpm add @astrojs/vercel
 ```
+
 Luego en `astro.config.mjs`:
+
 ```js
-import vercel from '@astrojs/vercel/serverless';
+import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   adapter: vercel(),
   integrations: [],
-  site: 'https://rendex.studio',
+  site: "https://rendex.studio",
 });
 ```
-
-**Netlify:**
-```bash
-pnpm add @astrojs/netlify
-```
-Y en la config: `adapter: netlify()`
 
 ---
 
@@ -65,11 +62,14 @@ Y en la config: `adapter: netlify()`
 ```bash
 pnpm add @astrojs/sitemap
 ```
+
 En `astro.config.mjs`:
+
 ```js
 import sitemap from '@astrojs/sitemap';
 integrations: [sitemap()],
 ```
+
 Después, descomentar la línea del Sitemap en `Rendex/public/robots.txt`.
 
 ---
@@ -81,6 +81,7 @@ Después, descomentar la línea del Sitemap en `Rendex/public/robots.txt`.
 - [ ] Instagram: `@rendex.3d.render` ← confirmar el handle exacto
 
 Si cambia alguno, actualizarlo en:
+
 - `src/components/Contact.astro`
 - `src/components/Footer.astro`
 - `src/layouts/Layout.astro` (Schema.org)
@@ -90,9 +91,10 @@ Si cambia alguno, actualizarlo en:
 ## 7. Páginas legales
 
 La web enlaza a estas páginas que aún no existen:
+
 - [ ] `Rendex/src/pages/politica-de-privacidad.astro`
-- [ ] `Rendex/src/pages/aviso-legal.astro` *(opcional)*
-- [ ] `Rendex/src/pages/politica-de-cookies.astro` *(opcional)*
+- [ ] `Rendex/src/pages/aviso-legal.astro` _(opcional)_
+- [ ] `Rendex/src/pages/politica-de-cookies.astro` _(opcional)_
 
 ---
 

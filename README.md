@@ -207,9 +207,9 @@ El proyecto está preparado para desplegar en **Vercel** o **Netlify**. Consulta
 
 ### SEO técnico
 
-- [ ] Instalar `@astrojs/sitemap` (`pnpm add @astrojs/sitemap`) y añadirlo a `astro.config.mjs`
-- [ ] Descomentar la línea del sitemap en `public/robots.txt` una vez desplegado
-- [ ] Confirmar la URL definitiva del sitio en `astro.config.mjs` (`site: "https://rendex.studio"`) y en `Layout.astro`
+- [x] Instalar `@astrojs/sitemap` y configurado en `astro.config.mjs`
+- [x] Sitemap activado en `public/robots.txt`
+- [x] URL del sitio confirmada: `https://rendex.es` en `astro.config.mjs` y `Layout.astro`
 
 ### Despliegue
 

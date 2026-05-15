@@ -1,10 +1,12 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
-// En Astro 6, output: 'static' (defecto) ya soporta rutas SSR individuales
-// mediante export const prerender = false en cada endpoint.
-// Para el deploy añade el adaptador de tu hosting:
-//   pnpm add @astrojs/vercel  →  import vercel from '@astrojs/vercel/serverless'
+// Sitio 100% estático — no se necesita adaptador ni SSR.
+// Deploy: conectar el repo a Vercel/Netlify directamente.
 export default defineConfig({
-  site: "https://rendex.studio", // TODO: cambiar por la URL real
-  integrations: [],
+  site: "https://rendex.es",
+  integrations: [sitemap()],
+  server: {
+    allowedHosts: ["rude-peas-grow.loca.lt"],
+  },
 });
