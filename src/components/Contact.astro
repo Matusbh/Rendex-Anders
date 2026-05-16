@@ -1,7 +1,5 @@
 ---
-// Contact — formulario de contacto via Web3Forms.
-// Requiere: PUBLIC_WEB3FORMS_KEY en .env
-const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
+// Contact — formulario de contacto via Formspree.
 ---
 
 <section id="contacto">
@@ -83,10 +81,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
         aria-label="Formulario de contacto"
         data-delay="140"
       >
-        <input type="hidden" name="access_key" value={accessKey} />
-        <input type="hidden" name="subject" value="Nuevo contacto desde rendex.es" />
-        <input type="hidden" name="from_name" value="Rendex Web" />
-        <input type="checkbox" name="botcheck" style="display:none" aria-hidden="true" />
+        <input type="hidden" name="_subject" value="Nuevo contacto desde rendex.es" />
         <div class="form-row">
           <div class="form-field">
             <label for="nombre">Nombre</label>
@@ -419,20 +414,19 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? "";
     statusDiv.textContent = "";
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://formspree.io/f/xjgzbgvj", {
         method: "POST",
+        headers: { Accept: "application/json" },
         body: new FormData(form),
       });
 
-      const data = await res.json();
-
-      if (data.success) {
+      if (res.ok) {
         statusDiv.className = "form-status success";
         statusDiv.textContent =
           "¡Mensaje enviado! Te responderemos en menos de 24 horas.";
         form.reset();
       } else {
-        throw new Error(data.message ?? `HTTP ${res.status}`);
+        throw new Error(`HTTP ${res.status}`);
       }
     } catch {
       statusDiv.className = "form-status error";
